@@ -1,6 +1,6 @@
 <?php
 
-namespace text;
+namespace Text;
 
 /**
  * A class to transform a text character cases between lower and upper. 
