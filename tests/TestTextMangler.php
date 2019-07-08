@@ -1,12 +1,36 @@
 <?php
 declare(strict_types=1);
 set_include_path('../../');
-include_once('src/camel/TextMangler.php');
+include_once('src/TextMangler.php');
 use Text\TextMangler;
 use PHPUnit\Framework\TestCase;
 
 final class TestTextMangler extends TestCase
 {
+    public function testInitializeClassWithNoString() : void
+    {
+        $this->expectException(ArgumentCountError::class);
+        $mangler = new TextMangler();
+    }
+
+    public function testInitializeClassWithMinus1() : void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $mangler = new TextMangler(-1);
+    }
+
+    public function testInitializeClassWithNullValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $mangler = new TextMangler(null);
+    }
+
+    public function testInitializeClassWithEmptyString() : void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $mangler = new TextMangler('');
+    }
+
     public function testInitializeClassWithSimpleString() : void 
     {
         $string = 'This is a Test StRing';

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 set_include_path('../../');
-include_once('src/camel/Camel.php');
+include_once('src/Camel.php');
 use Text\Camel;
 use PHPUnit\Framework\TestCase;
 
@@ -32,7 +32,7 @@ final class TestCamel extends TestCase
         $camel = new Camel();
     }
 
-    public function testInitalizeClassWithMinus1() : void
+    public function testInitializeClassWithMinus1() : void
     {
         $this->expectException(InvalidArgumentException::class);
         $camel = new Camel(-1);
